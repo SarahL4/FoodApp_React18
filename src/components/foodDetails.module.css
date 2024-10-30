@@ -1,0 +1,40 @@
+.recipeCard {
+	max-width: 600px;
+	margin: 20px;
+	padding: 20px;
+	/* box-shadow: (inset 左上) X右边 Y下边 Blur blurspread blurcolor; */
+	box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+	border-radius: 10px;
+	font-family: Polysans, sans-serif;
+	color: #393e46;
+}
+.recipeName {
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+.recipeImage {
+	max-width: 100%;
+	height: auto;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+.recipeDetails {
+	margin-bottom: 20px;
+	display: flex;
+	/* //前后占座 */
+	justify-content: space-between;
+	/* X上下 */
+	align-items: center;
+}
+.recipeInstructions {
+	padding: 0px;
+	border-radius: 5px;
+	color: #adaab0;
+	border: 5px dotted red;
+}
+.recipeInstructions ol {
+	margin-left: 0px;
+}
+.recipeInstructions li {
+	margin: 10px 0;
+}

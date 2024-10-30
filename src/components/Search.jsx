@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styles from './search.module.css';
-import useSearch from './hooks/useSearch';
+import useSearch from '../hooks/useSearch';
 
 // const URL = 'https://api.spoonacular.com/recipes/complexSearch';
 // const API_KEY = 'c82446aac5e5458eb9dd73b194a6d188';

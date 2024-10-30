@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import APIClient from '../../services/apiClient';
+import APIClient from '../services/apiClient';
+import pizzas from '../data/pizzas';
 
 const UseSearch = (searchQuery: string) => {
 	const apiClient = new APIClient();
@@ -7,6 +8,7 @@ const UseSearch = (searchQuery: string) => {
 	return useQuery({
 		queryKey: ['query', searchQuery],
 		queryFn: () => apiClient.get(searchQuery),
+		initialData: pizzas,
 	});
 };
 

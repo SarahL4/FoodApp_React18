@@ -1,3 +1,8 @@
-.innerContainer{
-    background-color: aqua;
+.innerContainer {
+	/* background-color: aqua; */
+	/* split the innerContainer by 1 , 相当说container 1分为2*/
+	flex: 1;
+	padding: 10px;
+	margin: 10px;
+	border: 2px dashed green;
 }
