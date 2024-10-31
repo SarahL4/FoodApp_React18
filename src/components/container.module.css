@@ -1,6 +1,4 @@
 .parentContainer {
 	display: flex;
 	/* background-color: brown; */
-	border: dashed;
-	border-color: red;
 }

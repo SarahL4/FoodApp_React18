@@ -20,6 +20,7 @@ export default function Search({ foodData, setFoodData }) {
 	// useEffect(() => {
 	// 	// a hook. need a callback (()=>{},[]), en dependencis array
 	// 	async function fetchFood() {
+	// https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=
 	// 		const res = await fetch(`${URL}?query=${searchText}&apiKey=${API_KEY}`);
 	// 		const data = await res.json();
 	// 		console.log(data.results);

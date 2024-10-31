@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import APIClient from '../services/apiClient';
 import pizzas from '../data/pizzas';
 
-const UseSearch = (searchQuery: string) => {
+const useSearch = (searchQuery: string) => {
 	const apiClient = new APIClient();
 
 	return useQuery({
@@ -12,4 +12,4 @@ const UseSearch = (searchQuery: string) => {
 	});
 };
 
-export default UseSearch;
+export default useSearch;

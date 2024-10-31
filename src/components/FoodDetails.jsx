@@ -2,16 +2,26 @@ import { useEffect, useState } from 'react';
 import viewRecipePizza1 from '../data/viewRecipePizza1';
 import styles from '../components/foodDetails.module.css';
 import ItemList from './ItemList';
+import useRecipe from '../hooks/useRecipe';
 
 //Get Recipe information: GET https://api.spoonacular.com/recipes/{id}/information
 export default function FoodDetails({ foodId }) {
 	// {} means object
-	const [food, setFood] = useState({});
+	const [food, setFoodData] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
 
-	const URL = `https://api.spoonacular.com/recipes/${foodId}/information`;
-	const API_KEY = 'c835ff7e73be435695eee8bb4e1fb59e';
+	// const URL = `https://api.spoonacular.com/recipes/${foodId}/information`;
+	// const API_KEY = 'c835ff7e73be435695eee8bb4e1fb59e';
 
+	const { data } = useRecipe(foodId);
+	useEffect(() => {
+		console.log('get data: ');
+		console.log(data);
+		if (data) {
+			setFoodData(data);
+			setIsLoading(false);
+		}
+	}, [data, setFoodData]);
 	// useEffect(() => {
 	// 	async function fetchFood() {
 	// 		// https://api.spoonacular.com/recipes/715538/information?apiKey=c835ff7e73be435695eee8bb4e1fb59e
@@ -28,27 +38,27 @@ export default function FoodDetails({ foodId }) {
 	// 	fetchFood();
 	// }, [URL, foodId]);
 
-	useEffect(() => {
-		async function fetchFood() {
-			try {
-				// https://api.spoonacular.com/recipes/656329/information?apiKey=c835ff7e73be435695eee8bb4e1fb59e
-				const res = await fetch(`${URL}?apiKey=${API_KEY}`);
-				const data = await res.json();
-				if (!data) {
-					setFood(viewRecipePizza1); // Ensure `viewRecipePizza1` is defined somewhere
-				} else {
-					console.log(data);
-					setFood(data);
-				}
-			} catch (error) {
-				console.error('Error fetching data:', error);
-				setFood(viewRecipePizza1);
-			} finally {
-				setIsLoading(false);
-			}
-		}
-		fetchFood();
-	}, [URL, API_KEY, foodId]);
+	// useEffect(() => {
+	// 	async function fetchFood() {
+	// 		try {
+	// 			// https://api.spoonacular.com/recipes/656329/information?apiKey=c835ff7e73be435695eee8bb4e1fb59e
+	// 			const res = await fetch(`${URL}?apiKey=${API_KEY}`);
+	// 			const data = await res.json();
+	// 			if (!data) {
+	// 				setFoodData(viewRecipePizza1); // Ensure `viewRecipePizza1` is defined somewhere
+	// 			} else {
+	// 				console.log(data);
+	// 				setFoodData(data);
+	// 			}
+	// 		} catch (error) {
+	// 			console.error('Error fetching data:', error);
+	// 			setFoodData(viewRecipePizza1);
+	// 		} finally {
+	// 			setIsLoading(false);
+	// 		}
+	// 	}
+	// 	fetchFood();
+	// }, [URL, API_KEY, foodId]);
 
 	return (
 		<>
