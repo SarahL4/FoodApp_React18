@@ -8,16 +8,22 @@ const axioInstance = axios.create({
 });
 
 class APIClient<T> {
+	endpoint: string;
+
+	constructor(endpoint: string) {
+		this.endpoint = endpoint;
+	}
+
 	get = async (query: string) => {
-		const res = await axioInstance.get<T>(`` + '/complexSearch', {
+		const res = await axioInstance.get<T>(this.endpoint, {
 			params: { query },
 		}); // Adds `query` to the request
 		return res.data;
 	};
 
-	getRecipe = async (id: string) => {
+	getRecipe = async () => {
 		// const resp = await axioInstance.get<T>(`` + '/' + id + '/information');
-		const resp = await axioInstance.get<T>(`/${id}/information`);
+		const resp = await axioInstance.get<T>(this.endpoint);
 		// console.log(resp);
 		// console.log(resp.data);
 		return resp.data;
